@@ -12,7 +12,7 @@ function Login() {
 
   const login = ()=>{
       const data = {username: username, password: password}
-      axios.post("http://localhost:3001/auth/login", data).then((response)=>{
+      axios.post("https://react-nodejs-mysql-post-app.herokuapp.com/auth/login", data).then((response)=>{
           //checking for errors
           if(response.data.error){
             //   passing errors in alert boxes

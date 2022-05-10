@@ -22,7 +22,7 @@ function App() {
   //setting authstate to true when access token exist
   useEffect(()=>{
     //you have to pass the headers
-    axios.get("http://localhost:3001/auth/auth", {headers:{
+    axios.get("https://react-nodejs-mysql-post-app.herokuapp.com/auth/auth", {headers:{
       accessToken: localStorage.getItem("accessToken")
     }}).then((response)=>{
       if(response.data.error){

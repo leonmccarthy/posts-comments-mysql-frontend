@@ -25,7 +25,7 @@ function Register() {
       //submit function
       const onSubmit = (data)=>{
         //sending data to the server01(backend)
-        axios.post("http://localhost:3001/auth/", data).then((response)=>{
+        axios.post("https://react-nodejs-mysql-post-app.herokuapp.com/auth/", data).then((response)=>{
           console.log("User successfully registered!");
           navigate('/login');
         })

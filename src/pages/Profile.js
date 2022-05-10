@@ -14,18 +14,18 @@ function Profile() {
 
     useEffect(()=>{
         //getting basic information
-        axios.get(`http://localhost:3001/auth/basicinfo/${id}`).then((response)=>{
+        axios.get(`https://react-nodejs-mysql-post-app.herokuapp.com/auth/basicinfo/${id}`).then((response)=>{
             setUsername(response.data.username)
         });
         //getting post by user id
-        axios.get(`http://localhost:3001/posts/byUserId/${id}`).then((response)=>{
+        axios.get(`https://react-nodejs-mysql-post-app.herokuapp.com/posts/byUserId/${id}`).then((response)=>{
             setListOfPosts(response.data);
         });
     }, []);
 
     //like post function
     const likePost = (postId)=> {
-        axios.post("http://localhost:3001/like", {PostId: postId}, { headers: {
+        axios.post("https://react-nodejs-mysql-post-app.herokuapp.com/like", {PostId: postId}, { headers: {
           accessToken: localStorage.getItem("accessToken")
         }}).then((response)=>{
           alert(response.data.message);

@@ -35,7 +35,7 @@ function CreatePost() {
   //submit function
   const onSubmit = (data)=>{
     //sending data to the server01(backend)
-    axios.post("http://localhost:3001/posts", data, { headers:{
+    axios.post("https://react-nodejs-mysql-post-app.herokuapp.com/posts", data, { headers:{
       accessToken: localStorage.getItem("accessToken")
     }}).then((response)=>{
       console.log("Data sent successfully");

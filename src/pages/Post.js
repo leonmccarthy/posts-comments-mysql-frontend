@@ -16,18 +16,18 @@ function Post() {
 
     useEffect(()=>{
       //getting post from backend using id
-        axios.get(`http://localhost:3001/posts/byId/${id}`).then((response)=>{
+        axios.get(`https://react-nodejs-mysql-post-app.herokuapp.com/posts/byId/${id}`).then((response)=>{
             setPostObject(response.data)
         });
         //getting comments from backend using id
-        axios.get(`http://localhost:3001/comments/${id}`).then((response)=>{
+        axios.get(`https://react-nodejs-mysql-post-app.herokuapp.com/comments/${id}`).then((response)=>{
             setComments(response.data)
         });
     }, []);
 
     const addComment = ()=>{
       //sending comments to the database
-      axios.post("http://localhost:3001/comments/", {commentBody: newComment, PostId: id},{
+      axios.post("https://react-nodejs-mysql-post-app.herokuapp.com/comments/", {commentBody: newComment, PostId: id},{
         //passing the accesstoken to backend
         headers: {
           accessToken: localStorage.getItem("accessToken")
@@ -46,7 +46,7 @@ function Post() {
     };
 
     const deleteComment =(id)=> {
-      axios.delete(`http://localhost:3001/comments/${id}`, {headers:{
+      axios.delete(`https://react-nodejs-mysql-post-app.herokuapp.com/comments/${id}`, {headers:{
         accessToken: localStorage.getItem("accessToken")
       }}).then(()=>{
         //remove the item from the list
@@ -57,7 +57,7 @@ function Post() {
     }
 
     const deletePost = (id)=>{
-      axios.delete(`http://localhost:3001/posts/${id}`, {headers: {
+      axios.delete(`https://react-nodejs-mysql-post-app.herokuapp.com/posts/${id}`, {headers: {
         accessToken: localStorage.getItem("accessToken")
       }}).then((response)=>{
         alert(response.data)
@@ -68,7 +68,7 @@ function Post() {
     const editPost = (option) => {
       if(option === "title"){
         let newTitle = prompt("Enter new title!");
-        axios.put("http://localhost:3001/posts/title",{ newTitle: newTitle , id: id}, {headers: {
+        axios.put("https://react-nodejs-mysql-post-app.herokuapp.com/posts/title",{ newTitle: newTitle , id: id}, {headers: {
           accessToken: localStorage.getItem("accessToken")
         }}).then(
           alert("Title successfully changed")

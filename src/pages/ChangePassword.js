@@ -8,7 +8,7 @@ function ChangePassword() {
     const navigate = useNavigate();
 
     const ChangePassword = ()=>{
-        axios.put("http://localhost:3001/auth/changepassword", 
+        axios.put("https://react-nodejs-mysql-post-app.herokuapp.com/auth/changepassword", 
         { oldPassword: oldPassword , newPassword: newPassword},
         {headers: { accessToken: localStorage.getItem("accessToken")}}).then((response)=>{
             if(response.data.error){

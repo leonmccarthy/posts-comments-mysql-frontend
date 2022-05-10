@@ -27,7 +27,7 @@ function Home() {
 
       //like post function
       const likePost = (postId)=> {
-        axios.post("http://localhost:3001/like", {PostId: postId}, { headers: {
+        axios.post("https://react-nodejs-mysql-post-app.herokuapp.com/like", {PostId: postId}, { headers: {
           accessToken: localStorage.getItem("accessToken")
         }}).then((response)=>{
           alert(response.data.message);
